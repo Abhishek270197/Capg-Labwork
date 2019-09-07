@@ -1,0 +1,221 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Task1
+
+{
+    class StringLengthException : Exception
+    {
+        public StringLengthException(string message) : base(message)
+        {
+            System.Console.WriteLine(message);
+        }
+    }
+   class InvalidCreditLimitException : Exception
+    {
+       
+            public InvalidCreditLimitException(string message) : base(message)
+        {
+            System.Console.WriteLine(message);
+        }
+
+            
+        
+    }
+    class Customer
+    {
+        private int _customerID;
+        private string _customerName;
+        private string _address;
+        private string _city;
+        private string _phone;
+        private double _creditLimit;
+
+        public Customer()
+        {
+
+        }
+        public Customer(int customerID, string customerName, string address, string city, string phone, double creditLimit )
+        {
+            this._customerID = customerID;
+            this._customerName = customerName;
+            this._address = address;
+            this._city = city;
+            this._phone = phone;
+            
+            if (_creditLimit < 50000 && _creditLimit >0)
+            {
+                this._creditLimit = creditLimit;
+            }
+            else
+            {
+                throw new InvalidCreditLimitException("Credit Amount can''t exceed Rs.50000");
+            }
+        }
+        public string CustomerName
+        {
+            set
+            {
+                if (value.Length <= 30 && value.Length>5)
+                {
+                    _customerName = value;
+
+                }
+                else
+                {
+                    throw new StringLengthException("Customer Name should be between 6 to  30 characters ");
+                }
+            }
+            get
+            {
+                return _customerName;
+            }
+
+        }
+        public string Phone
+        {
+            set
+            {
+                if (value.Length==10) {
+                    _phone = value;
+                }
+                else
+                {
+                    throw new StringLengthException("Mobile number should be of 10 characters ");
+                }
+            }
+            get
+            {
+                return _phone;
+            }
+        }
+        public int CustomerID
+        {
+            set
+            {
+                _customerID = value;
+            }
+            get
+            {
+                return _customerID;
+            }
+        }
+        public string Address
+        {
+            set
+            {
+                if (value.Length <= 30 && value.Length > 5)
+                {
+                    _address = value;
+
+                }
+                else
+                {
+                    throw new StringLengthException("Address should have 10 to  50 characters ");
+                }
+            }
+            get
+            {
+                return _address;
+            }
+        }
+        public string City
+        {
+            set
+            {
+                if (value.Length <= 30)
+                {
+                    _city = value;
+
+                }
+                else
+                {
+                    throw new StringLengthException("City name can't be that long");
+                }
+            }
+            get
+            {
+                return _city;
+            }
+        }
+        public double CreditLimit
+        {
+            set
+            {
+                if (_creditLimit < 50000 && _creditLimit > 0)
+                {
+                    _creditLimit =value ;
+                }
+                else
+                {
+                    throw new InvalidCreditLimitException("Credit Amount can''t exceed Rs.50000");
+                }
+            }
+            get
+            {
+                return _creditLimit;
+            }
+        }
+
+
+
+
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                
+                
+                    
+                 
+                    
+                    //object 1
+                        Customer customer;
+                        customer = new Customer();
+                        Console.WriteLine("Enter Customer ID");
+                        customer.CustomerID = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter Customer Name");
+                        customer.CustomerName = Console.ReadLine();
+                        Console.WriteLine("Enter Phone");
+                        customer.Phone = Console.ReadLine();
+                        Console.WriteLine("Enter Address");
+                        customer.Address = Console.ReadLine();
+                        Console.WriteLine("Enter City");
+                        customer.City = Console.ReadLine();
+                        Console.WriteLine("Enter CreditLimit");
+                        customer.CreditLimit = double.Parse(Console.ReadLine());
+
+                       Console.WriteLine("Customer details are:");
+                        Console.WriteLine("Customer ID :" + customer.CustomerID);
+                        Console.WriteLine("Customer Name :" + customer.CustomerName);
+                        Console.WriteLine("Phone: " + customer.Phone);
+                        Console.WriteLine("Address :" + customer.Address);
+                        Console.WriteLine("City :" + customer.City);
+                        Console.WriteLine("creditLimit: " + customer.CreditLimit);
+                        
+            }
+            catch (InvalidCreditLimitException )
+            {
+
+                
+            }
+            catch (StringLengthException)
+            {
+                
+
+            }
+            catch (Exception)
+            {
+                
+                
+            }
+            Console.ReadKey();
+        }
+    }
+}
