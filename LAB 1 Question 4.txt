@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab_1_Ques_4
+{
+    class Student
+    {
+        private int _rollNumber;
+        private string _studentName;
+        private byte _age;
+        private char _gender;
+        private DateTime _dob;
+        private string _address;
+        private float _percentage;
+
+        public int RollNumber { get => _rollNumber; set => _rollNumber = value; }
+        public string StudentName { get => _studentName; set => _studentName = value; }
+        public byte Age { get => _age; set => _age = value; }
+        public char Gender { get => _gender; set => _gender = value; }
+        public DateTime Dob { get => _dob; set => _dob = value; }
+        public string Address { get => _address; set => _address = value; }
+        public float Percentage { get => _percentage; set => _percentage = value; }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Student Student;
+            Student = new Student();
+            Console.WriteLine("Enter Roll number :");
+            Student.RollNumber = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Student Name:");
+            Student.StudentName = Console.ReadLine();
+            Console.WriteLine("Enter Age:");
+            Student.Age = byte.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Date of birth(in dd/mm/yyyy):");
+            Student.Dob = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Gender");
+            Student.Gender = Console.ReadLine()[0];
+            Console.WriteLine("Enter Address:");
+            Student.Address = Console.ReadLine();
+            Console.WriteLine("Enter Percentage :");
+            Student.Percentage = float.Parse(Console.ReadLine());
+
+            Console.WriteLine("Student details are:");
+            Console.WriteLine("Student Roll number " + Student.RollNumber);
+            Console.WriteLine("Student Name " + Student.StudentName);
+            Console.WriteLine("Age" + Student.Age);
+            Console.WriteLine("Date of Birth " + Student.Dob);
+            Console.WriteLine("Gender " + Student.Gender);
+            Console.WriteLine("Address " + Student.Address);
+            Console.WriteLine("Percentage " + Student.Percentage);
+
+            Console.ReadKey();
+
+        }
+    }
+}
