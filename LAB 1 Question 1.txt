@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+
+
+namespace LAB_1_Ques1
+{
+    class Employee
+    {
+        private int _employeeID;
+        private string _employeeName;
+        private string _address;
+        private string _city;
+        private string _department;
+        private double _salary;
+
+        public int EmployeeID { get => _employeeID; set => _employeeID = value; }
+        public string EmployeeName { get => _employeeName; set => _employeeName = value; }
+        public string Address { get => _address; set => _address = value; }
+        public string City { get => _city; set => _city = value; }
+        public string Department { get => _department; set => _department = value; }
+        public double Salary { get => _salary; set => _salary = value; }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            Employee[] employee = new Employee[10];
+            for (int i = 0; i < employee.Length; i++)
+            {
+                employee[i] = new Employee();
+                Console.WriteLine("Enter Employee ID");
+                employee[i].EmployeeID = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter Employee Name");
+                employee[i].EmployeeName = Console.ReadLine();
+                Console.WriteLine("Enter Address");
+                employee[i].Address = Console.ReadLine();
+                Console.WriteLine("Enter Department");
+                employee[i].Department = Console.ReadLine();
+                Console.WriteLine("Enter City");
+                employee[i].City = Console.ReadLine();
+                Console.WriteLine("Enter Salary");
+                employee[i].Salary = double.Parse(Console.ReadLine());
+
+
+
+            }
+            Console.WriteLine("Employee details are:");
+            for (int i = 0; i < employee.Length; i++)
+            {
+
+                Console.WriteLine("Employee Name " + employee[i].EmployeeName);
+                Console.WriteLine("Employee Salary: " + employee[i].Salary);
+            }
+            Console.ReadKey();
+        }
+    }
+}
