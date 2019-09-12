@@ -1,0 +1,77 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LAB_1_Ques_2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("Arthimetic Calculator");
+            int choice;
+            do
+            {
+                Console.WriteLine("Enter first number: ");
+                double a = double.Parse(Console.ReadLine());
+                Console.WriteLine("Enter Second number: ");
+                double b = double.Parse(Console.ReadLine());
+                Console.WriteLine("1. Add");
+                Console.WriteLine("2. Substract");
+                Console.WriteLine("3. Multiply");
+                Console.WriteLine("4. Divide");
+                Console.WriteLine("5. Modulus");
+                Console.WriteLine("6. Exit");
+                Console.WriteLine("Enter your choice (1-5): ");
+
+                choice = int.Parse(Console.ReadLine());
+                if (choice == 1)
+                {
+                   double c = a + b;
+                    Console.WriteLine($"Result = {c}");
+
+                }
+                else if (choice == 2)
+                {
+                    double d = a - b;
+                    Console.WriteLine($"Result = {d}");
+                }
+                else if (choice == 3)
+                {
+                    double e = a * b;
+                    Console.WriteLine($"Result = {e}");
+                }
+                else if (choice == 4)
+                {
+                    if (b == 0)
+                    {
+                        Console.WriteLine("Can´t divide with zero");
+                    }
+                    else
+                    {
+                        double f = a / b;
+                        Console.WriteLine($"Result = {f}");
+                    }
+                }
+                else if (choice == 5)
+                {
+                    double g = a % b;
+                    Console.WriteLine($"Result = {g}");
+                }
+                else if (choice == 6)
+                {
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Choice");
+                }
+            } while (choice != 6);
+            Console.ReadKey(); }
+    }
+}
+    
+
