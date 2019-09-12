@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LAB_1_Ques_3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter number between 1 and 5 (both included)");
+            int ch = int.Parse(Console.ReadLine()); 
+            switch (ch)
+            {
+                case 1:
+                    Console.WriteLine("You entered one");
+                    break;
+                case 2:
+                    Console.WriteLine("You entered two");
+                    break;
+                case 3:
+                    Console.WriteLine("You entered three");
+                    break;
+                case 4:
+                    Console.WriteLine("You entered four");
+                    break;
+                case 5:
+                    Console.WriteLine("You entered five");
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid choice");
+                    break;
+            }
+            Console.ReadKey();
+        }
+    }
+}
